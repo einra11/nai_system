@@ -458,17 +458,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "97b3f1b353f26a1895818d02ecf8947c1e6e4bc3"
+                "reference": "c071123617c02d5cf9db082015ad10f81029cb55"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/97b3f1b353f26a1895818d02ecf8947c1e6e4bc3",
-                "reference": "97b3f1b353f26a1895818d02ecf8947c1e6e4bc3",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/c071123617c02d5cf9db082015ad10f81029cb55",
+                "reference": "c071123617c02d5cf9db082015ad10f81029cb55",
                 "shasum": ""
             },
             "require": {
                 "doctrine/inflector": "^1.1",
                 "dragonmantank/cron-expression": "^2.0",
+                "egulias/email-validator": "~2.0",
                 "erusev/parsedown": "^1.7",
                 "ext-json": "*",
                 "ext-mbstring": "*",
@@ -595,7 +596,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2018-11-13T15:25:14+00:00"
+            "time": "2018-11-14T13:51:05+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -3389,16 +3390,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "7.4.3",
+            "version": "7.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "c151651fb6ed264038d486ea262e243af72e5e64"
+                "reference": "b1be2c8530c4c29c3519a052c9fb6cee55053bbd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c151651fb6ed264038d486ea262e243af72e5e64",
-                "reference": "c151651fb6ed264038d486ea262e243af72e5e64",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/b1be2c8530c4c29c3519a052c9fb6cee55053bbd",
+                "reference": "b1be2c8530c4c29c3519a052c9fb6cee55053bbd",
                 "shasum": ""
             },
             "require": {
@@ -3469,7 +3470,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-10-23T05:57:41+00:00"
+            "time": "2018-11-14T16:52:02+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",

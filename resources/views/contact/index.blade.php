@@ -19,7 +19,7 @@
                             </ul>
                         </div>
                         <div class="col-md-8 col-md-push-1 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
-                        <form action="contactScript.php" method="get" name="contactForm">
+                        <form action="" method="get" name="contactForm">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -37,8 +37,23 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
+                                        <div class="form-group">
+                                                <select title="Department" class="form-control">
+                                                        <option>Maintenance Department</option>
+                                                        <option>Irrigation Association</option>
+                                                        <option>Construction And Structures</option>
+                                                        <option>Billing</option>
+                                                        <option>Permits</option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                <div class="col-md-6">
                                     <div class="form-group">
-                                        <input name="txtAddress" class="form-control" placeholder="Address" type="text" required />
+                                            <select title="Address" class="form-control">
+                                                @foreach($barangays as $barangay)
+                                                    <option>{{$barangay->b_name}}</option>
+                                                @endforeach
+                                            </select>
                                     </div>
                                 </div>
                                 <div class="col-md-12">

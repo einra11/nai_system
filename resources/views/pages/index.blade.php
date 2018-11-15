@@ -2,7 +2,8 @@
 @section('content')
     <div class="container container-boxes">
             <div class="row featurette pb-3">
-                        <div class="col-md-8 padding-0 pl-1">
+                        <div class="col-md-8 pt-4 pl-1">
+                                        <h1 class="ml-5">National Irrigation Administration</h1>
                             <div class="card">
                                     <img class="card-img-top" src="/storage/web_gallery/nia1.png" width="100%">
                                     <div class="card-body">
@@ -23,7 +24,7 @@
                             </div>
                             
                         </div>
-                        <div class="col-md-4 padding-0 pl-1 pr-1">
+                        <div class="col-md-4 padding-0 pr-1 pt-2">
                                 <img src="/storage/web_gallery/nia1.png" width="100%" alt="">
                                 <p class="text-justify"> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
                                 <img src="/storage/web_gallery/nia2.png" width="100%" alt="">
