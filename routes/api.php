@@ -16,3 +16,14 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//List
+Route::get('apimessages', 'ApiMessageController@index');
+//List single
+Route::get('apimessage/{id}', 'ApiMessageController@show');
+//Create
+Route::post('apimessage', 'ApiMessageController@store');
+//Update
+Route::put('apimessage', 'ApiMessageController@store');
+//Delete
+Route::delete('apimessage/{id}', 'ApiMessageController@destroy');

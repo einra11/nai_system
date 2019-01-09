@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Message;
 use App\Barangay;
+use App\Role;
 
 class ContactController extends Controller
 {
@@ -22,11 +23,19 @@ class ContactController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $barangays = Barangay::all();
-        return view('contact.index')->with('barangays', $barangays);
+        if($request->user()->hasRole('Client')){
+            $data = array(
+                'roles' => Role::all(),
+                'barangays' => Barangay::all()
+            );
+            return view('contact.index')->with($data);
+        }
+        else{
+            return redirect('/dashboard');
+        }
     }
 
     /**
@@ -48,6 +57,29 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request,[
+            'cntName' => 'required',
+            'cntEmail' => 'required|email',
+            'cntPhoneNumber' => 'required|digits:11',
+            'cntDepartment' => 'required',
+            'cntBarangay' => 'required',
+            'cntMessage' => 'required',
+        ]);
+        
+
+        
+        $mesg = new Message;
+        $mesg ->name = $request->input('cntName');
+        $mesg ->email = $request->input('cntEmail');
+        $mesg ->phone_number = $request->input('cntPhoneNumber');
+        $mesg ->to_department = $request->input('cntDepartment');
+        $mesg ->address = $request->input('cntBarangay');
+        $mesg ->read_tf = "N";
+        $mesg ->message = $request->input('cntMessage');
+
+        $mesg->save();
+
+        return redirect('/contact')->with('success', 'Message Sent');
     }
 
     /**

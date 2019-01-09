@@ -11,11 +11,14 @@
 |
 */
 
+
 Route::get('/', function () {
-    return view('pages.index');
+    $publish = App\Publish::orderBy('created_at','desc')->paginate(2);
+    return view('pages.index')->with('publish',$publish);
 });
 Route::get('/gallery', function () {
-    return view('pages.gallery');
+    $publish = App\Publish::orderBy('created_at','desc')->get();
+    return view('pages.gallery')->with('publish',$publish);
 });
 
 Route::get('/about', function () {
@@ -27,3 +30,4 @@ Auth::routes();
 Route::resource('/dashboard', 'DashboardController');
 Route::resource('services','ServiceController');
 Route::resource('contact','ContactController');
+Route::resource('publish','PublishController');

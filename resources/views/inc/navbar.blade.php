@@ -28,9 +28,6 @@
                         <li class="nav-item active">
                                 <a class="nav-item nav-link" href="/about">About</a>
                         </li>
-                        <li class="nav-item active">
-                                <a class="nav-item nav-link" href="/contact">Contact</a>
-                        </li>
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
@@ -42,15 +39,41 @@
                             @endif
                         </li>
                     @else
+                    @if(Auth::user()->hasRole('Client'))
+                        <li class="nav-item active">
+                                <a class="nav-item nav-link" href="/contact">Contact</a>
+                        </li>
+                        @endif
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                    <i class="fa fa-user-circle fa-2x" aria-hidden="true"></i>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <h6 class="dropdown-header">{{ Auth::user()->name }}</h6>
+                                @if(Auth::user()->hasAnyRole([
+                                    'Admin',
+                                    'Maintenance Department',
+                                    'Irrigation Association',
+                                    'Contstruction Structures',
+                                    'Billing',
+                                    'Permits'
+                                ]))
+                                <a class="dropdown-item" href="/dashboard">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                                Dashboard
+                                </a>
+                                @endif
+                                @if(Auth::user()->hasRole('Admin'))
+                                <a class="dropdown-item" href="/publish">
+                                    <i class="fa fa-linode" aria-hidden="true"></i>
+                                    Publish
+                                </a>
+                                @endif
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
+                                    document.getElementById('logout-form').submit();">
+                                    <i class="fa fa-sign-out" aria-hidden="true"></i>
                                     {{ __('Logout') }}
                                 </a>
 

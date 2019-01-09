@@ -6,8 +6,14 @@
                         <h1>Gallery</h1>
                     </div>
             </header>
-            <div>
-                    <h1>Pictures</h1>
+            <div class="row featurette pb-3">
+                @foreach($publish as $published)
+                <div class="col-md-6 mt-2">
+                <div class="card">
+                        <img class="card-img-top" src="/storage/web_gallery/{{$published->fileUpload}}" width="100%">
+                </div>
+                </div>
+                @endforeach
             </div>
     </div>
 

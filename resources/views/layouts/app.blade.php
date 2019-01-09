@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'NIA') }}</title>
+    <link rel="icon" href="{!! asset('/storage/web_imgs/logo1.png') !!}"/>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -18,11 +19,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
 </head>
 <body>
     <div id="app">
             @include('inc.navbar')
-        <main class="py-0">
+        <main class="pb-5">
             @include('inc.messages')
             @yield('content')
         </main>

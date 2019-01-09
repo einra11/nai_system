@@ -23,16 +23,26 @@ class DashboardController extends Controller
      */
     public function index(Request $request)
     {
-        if($request->user()->hasRole([
-                'Admin',
-                'Maintenance Department', 
-                'Irrigation Association',
-                'Construction Structures',
-                'Billings',
-                'Permits',])){
-                    return view('dashboard');
-                }
-        else{
+        // dd($request->user());
+        if($request->user()->hasRole('Admin')){
+            return view('dashboard');
+        }
+        else if($request->user()->hasRole('Maintenance Department')){
+            return view('dashboard');
+        }
+        else if($request->user()->hasRole('Irrigation Association')){
+            return view('dashboard');
+        }
+        else if($request->user()->hasRole('Construction Structures')){
+            return view('dashboard');
+        }
+        else if($request->user()->hasRole('Billings')){
+            return view('dashboard');
+        }
+        else if($request->user()->hasRole('Permits')){
+            return view('dashboard');
+        }
+        else if($request->user()->hasRole('Client')){
             return redirect('/contact');
         }
     }
